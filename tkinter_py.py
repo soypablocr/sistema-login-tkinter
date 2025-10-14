@@ -12,12 +12,12 @@ class SistemaLogin:
         self.ventana.resizable(False, False)
         
         # Archivo para guardar usuarios
-        self.archivo_usuarios = "usuarios.json"  # ❌ Era archivos_usuarios
+        self.archivo_usuarios = "usuarios.json"  
         self.usuario_actual = None 
     
         # Inicializar archivo si no existe
-        if not os.path.exists(self.archivo_usuarios):  # ❌ Era archivos_usuarios
-            with open(self.archivo_usuarios, 'w') as f:  # ❌ Era archivos_usuarios
+        if not os.path.exists(self.archivo_usuarios):  
+            with open(self.archivo_usuarios, 'w') as f:  
                 json.dump([], f)
                 
         # Mostrar pantalla de inicio de sesión
@@ -31,15 +31,15 @@ class SistemaLogin:
     def cargar_usuarios(self):
         """Carga usuarios desde el archivo JSON"""
         try: 
-            with open(self.archivo_usuarios, 'r') as f:  # ❌ Era archivos_usuarios
+            with open(self.archivo_usuarios, 'r') as f:  
                 return json.load(f)
         except:
             return []
         
-    def guardar_usuario(self, usuario):  # ❌ Era guardar_usuarios (plural)
+    def guardar_usuario(self, usuario):  
         """Guarda un nuevo usuario en el archivo JSON"""
         usuarios = self.cargar_usuarios()
-        usuarios.append(usuario)  # ❌ Era usuarios.append(usuarios) - error grave
+        usuarios.append(usuario)  
         with open(self.archivo_usuarios, 'w') as f:
             json.dump(usuarios, f, indent=2)
                 
@@ -57,7 +57,7 @@ class SistemaLogin:
         if not re.search(r'[!@#$%^&*(),.?":{}|<>]', contrasena):
             return False, "La contraseña debe tener al menos un carácter especial"
     
-        return True, ""  # ❌ Faltaba retornar mensaje vacío cuando es válida
+        return True, ""  # 
     
     def mostrar_inicio_sesion(self):
         """Muestra la pantalla de inicio de sesión"""
@@ -70,7 +70,7 @@ class SistemaLogin:
         
         # Título
         titulo = tk.Label(frame, text="Iniciar Sesión", 
-                          font=("Arial", 24, "bold"), bg="#f0f0f0")  # ❌ Era 20
+                          font=("Arial", 24, "bold"), bg="#f0f0f0")  
         titulo.pack(pady=30)
         
         # Correo electrónico
@@ -82,7 +82,7 @@ class SistemaLogin:
         # Contraseña
         tk.Label(frame, text="Contraseña:",
                  font=("Arial", 12), bg="#f0f0f0").pack(anchor="w", pady=(10, 5))
-        entry_contrasena = tk.Entry(frame, font=("Arial", 12), width=30, show="*")  # ❌ Era "Arias"
+        entry_contrasena = tk.Entry(frame, font=("Arial", 12), width=30, show="*")  
         entry_contrasena.pack(pady=(0, 20))
         
         # Botón de inicio de sesión
@@ -136,30 +136,30 @@ class SistemaLogin:
                 
         # Título
         titulo = tk.Label(frame, text="Crear Cuenta",
-                          font=("Arial", 24, "bold"), bg="#f0f0f0")  # ❌ Era 20
+                          font=("Arial", 24, "bold"), bg="#f0f0f0") 
         titulo.pack(pady=20)
                 
         # Nombre 
         tk.Label(frame, text="Nombre:",
-                font=("Arial", 12), bg="#f0f0f0").pack(anchor="w", pady=(10, 5))  # ❌ Era padx
+                font=("Arial", 12), bg="#f0f0f0").pack(anchor="w", pady=(10, 5))  
         entry_nombre = tk.Entry(frame, font=("Arial", 12), width=30)
         entry_nombre.pack(pady=(0, 10))
                                        
         # Apellido
         tk.Label(frame, text="Apellido:",
-                font=("Arial", 12), bg="#f0f0f0").pack(anchor="w", pady=(10, 5))  # ❌ Era padx
+                font=("Arial", 12), bg="#f0f0f0").pack(anchor="w", pady=(10, 5))  
         entry_apellido = tk.Entry(frame, font=("Arial", 12), width=30)
         entry_apellido.pack(pady=(0, 10))
                 
         # Correo electrónico
         tk.Label(frame, text="Correo electrónico:",
-                font=("Arial", 12), bg="#f0f0f0").pack(anchor="w", pady=(10, 5))  # ❌ Era padx
+                font=("Arial", 12), bg="#f0f0f0").pack(anchor="w", pady=(10, 5))  
         entry_correo = tk.Entry(frame, font=("Arial", 12), width=30)
         entry_correo.pack(pady=(0, 10))
                 
         # Contraseña
         tk.Label(frame, text="Contraseña:",
-                font=("Arial", 12), bg="#f0f0f0").pack(anchor="w", pady=(10, 5))  # ❌ Era padx
+                font=("Arial", 12), bg="#f0f0f0").pack(anchor="w", pady=(10, 5)) 
         entry_contrasena = tk.Entry(frame, font=("Arial", 12), width=30, show="*")
         entry_contrasena.pack(pady=(0, 15))
                 
@@ -214,7 +214,7 @@ class SistemaLogin:
                 return
         
         # Validar contraseña
-        valida, mensaje = self.validar_contrasena(contrasena)  # ❌ Era valiudar_contrasena
+        valida, mensaje = self.validar_contrasena(contrasena)  
         if not valida:
             messagebox.showerror("Error", mensaje)
             return
@@ -227,7 +227,7 @@ class SistemaLogin:
             'contrasena': contrasena
         }
                 
-        self.guardar_usuario(nuevo_usuario)  # ❌ Era guardar_usuarios
+        self.guardar_usuario(nuevo_usuario)  
         messagebox.showinfo("Éxito", "Usuario registrado correctamente.\nAhora puede iniciar sesión.")
                 
         self.mostrar_inicio_sesion()
@@ -239,12 +239,12 @@ class SistemaLogin:
                 
         # Frame Principal
         frame = tk.Frame(self.ventana, bg="#e8f5e9")
-        frame.pack(expand=True, fill="both")  # ❌ Era expand==True
+        frame.pack(expand=True, fill="both")  
                 
         # Mensaje de bienvenida
         bienvenida = tk.Label(frame,
                             text="¡Bienvenido/a!",
-                            font=("Arial", 28, "bold"),  # ❌ Era fonr
+                            font=("Arial", 28, "bold"),  
                             bg="#e8f5e9", fg="#2e7d32")
         bienvenida.pack(pady=30)
         
@@ -260,7 +260,7 @@ class SistemaLogin:
                 
         tk.Label(info_frame,
                 text="Panel Principal",
-                font=("Arial", 18, "bold"),  # ❌ Era 16, bold sin comillas
+                font=("Arial", 18, "bold"),  
                 bg="#ffffff").pack(pady=20)
                 
         tk.Label(info_frame,
@@ -269,7 +269,7 @@ class SistemaLogin:
                 bg="#ffffff").pack(pady=10)
                          
         tk.Label(info_frame,
-                text="Has iniciado sesión correctamente en el sistema.",  # ❌ Era test
+                text="Has iniciado sesión correctamente en el sistema.", 
                 font=("Arial", 11),
                 bg="#ffffff", fg="gray").pack(pady=20)
                 
