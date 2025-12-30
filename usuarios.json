@@ -10,5 +10,11 @@
     "apellido": "Gonzalez",
     "correo": "pdarces@gmail.com",
     "contrasena": "Cuadrado21201."
+  },
+  {
+    "nombre": "Ana",
+    "apellido": "Perez",
+    "correo": "ana@gmail.com",
+    "contrasena": "Cualquiera.1"
   }
 ]
